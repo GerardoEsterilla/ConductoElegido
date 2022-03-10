@@ -1,29 +1,29 @@
-@Library('ceiba-jenkins-library') _
+@Library('ceiba-jenkins-library@master') _
 pipeline{
 	// any -> tomaria slave 5 u 8
 	// Para mobile se debe especificar el slave -> {label 'Slave_Mac'}
 	// Para proyectos de arus se debe tomar el slave 6 o 7 -> {label 'Slave6'} o {label 'Slave7'}
     agent any
-
+	
     options {
         buildDiscarder(logRotator(numToKeepStr: '5'))
         disableConcurrentBuilds()
         gitLabConnection('GitCeiba')
     }
-
+	
     environment {
         PROJECT_PATH_BACK = 'microservicio'
     }
-
+	
     triggers {
-        // @yearly, @annually, @monthly, @weekly, @daily, @midnight, and @hourly o definir un intervalo. Ej: H */4 * * 1-5
-        pollSCM('@dayli') //define un intervalo regular en el que Jenkins debería verificar los cambios de fuente nuevos
+        // @yearly, @annually, @monthly, @weekly, @daily, @midnight, and @hourly o definir un intervalo ejemplo H */4 * * 1-5
+        pollSCM('@daily') //define un intervalo regular en el que Jenkins debería verificar los cambios de fuente nuevos
     }
-
+	
     tools {
-        jdk 'JDK8_Centos'
+        jdk 'JDK13_Centos'
     }
-
+	
     // Parametros disponibles en jenkins
      /*parameters{
             string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')
@@ -32,22 +32,22 @@ pipeline{
             choice(name: 'CHOICE', choices: ['One', 'Two', 'Three'], description: 'Pick something')
             password(name: 'PASSWORD', defaultValue: 'SECRET', description: 'Enter a passwor')
      }*/
-
+	
     stages{
         stage('Checkout') {
             steps {
                 echo '------------>Checkout desde Git Microservicio<------------'
                 //Esta opción se usa para el checkout sencillo de un microservicio
                 gitCheckout(
-                    urlProject:'https://github.com/GerardoEsterilla/ConductorElegido',
-                    branchProject: '${BRANCH_NAME}', 
+                    urlProject:'https://github.com/GerardoEsterilla/ConductorElegido/tree/main/microservicio',
+                    branchProject: '${BRANCH_NAME}',
                 )
 
                 //Esta opción se usa cuando el comun está centralizado para varios microservicios
                 /*gitCheckoutWithComun(
-                    urlProject:'git@git.ceiba.com.co:ceiba_legos/revision-blocks.git',
+                    urlProject:'<url repositorio proyecto>',
                     branchProject: '${BRANCH_NAME}',
-                    urlComun: 'git@git.ceiba.com.co:ceiba_legos/comun.git'
+                    urlComun: '<url repositorio proyecto comun>'
                 )*/
 
                 dir("${PROJECT_PATH_BACK}"){
@@ -85,14 +85,22 @@ pipeline{
                 */
             }
         }
-		
-		stage('Static Code Analysis') {
-			steps{
-				sonarqubeMasQualityGates(sonarKey:'com.ceiba.core.bloque', 
-				sonarName:'co.com.ceiba.conductroElegido:conductorElegido', 
-				sonarPathProperties:'./sonar-project.properties')
+        stage('Static Code Analysis') {
+            environment {
+                SONARSCANNER = "${tool name: 'SonarScanner', type: 'hudson.plugins.sonar.SonarRunnerInstallation'}/bin/sonar-scanner"
+            }
+            steps{
+                echo '------------>Análisis de código estático<------------'
+                withSonarQubeEnv('Sonar') {
+                    sh "${env.SONARSCANNER} -Dsonar.projectKey=co.com.ceiba.conductroElegido:conductorElegido.${BRANCH_NAME} -Dsonar.projectName=co.com.ceiba.conductroElegido:conductorElegido${BRANCH_NAME} -Dproject.settings=./sonar-project.properties"
+                }
+                echo '------------>Revision de Quality Gates<------------'
+                sleep 5
+                timeout(time: 1, unit: 'MINUTES') {
+                    waitForQualityGate abortPipeline: true
+                }
 			}
-		}
+        }
 
         stage('Build'){
             parallel {
@@ -107,7 +115,7 @@ pipeline{
             }
          }
     }
-
+	
     post {
         failure {
             mail(
@@ -120,5 +128,5 @@ pipeline{
         success {
             updateGitlabCommitStatus name: 'IC Jenkins', state: 'success'
         }
-    }
+    }	
 }
