@@ -1,0 +1,1 @@
+DELETE FROM vehiculos WHERE id = :id;

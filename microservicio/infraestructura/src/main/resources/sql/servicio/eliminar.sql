@@ -1,0 +1,1 @@
+DELETE FROM servicios WHERE id = :id;
