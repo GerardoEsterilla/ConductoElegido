@@ -1,4 +1,4 @@
-@Library('ceiba-jenkins-library@master') _
+@Library('ceiba-jenkins-library') _
 pipeline{
 	// any -> tomaria slave 5 u 8
 	// Para mobile se debe especificar el slave -> {label 'Slave_Mac'}
@@ -12,7 +12,7 @@ pipeline{
     }
 
     environment {
-        PROJECT_PATH_BACK = 'Conductor_Elegido'
+        PROJECT_PATH_BACK = 'microservicio'
     }
 
     triggers {
