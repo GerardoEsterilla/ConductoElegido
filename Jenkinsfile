@@ -1,4 +1,4 @@
-@Library('ceiba-jenkins-library@master') _
+@Library('ceiba-jenkins-library') _
 pipeline{
 	// any -> tomaria slave 5 u 8
 	// Para mobile se debe especificar el slave -> {label 'Slave_Mac'}
@@ -82,34 +82,24 @@ pipeline{
                 */
             }
         }
-        stage('Static Code Analysis') {
-            environment {
-                SONARSCANNER = "${tool name: 'SonarScanner', type: 'hudson.plugins.sonar.SonarRunnerInstallation'}/bin/sonar-scanner"
-            }
-            steps{
-                echo '------------>Análisis de código estático<------------'
-                withSonarQubeEnv('Sonar') {
-                    sh "${env.SONARSCANNER} -Dsonar.projectKey=co.com.ceiba.conductroElegido:conductorElegido.${BRANCH_NAME} -Dsonar.projectName=co.com.ceiba.conductroElegido:conductorElegido${BRANCH_NAME} -Dproject.settings=./sonar-project.properties"
-                }
-                echo '------------>Revision de Quality Gates<------------'
-                sleep 5
-                timeout(time: 1, unit: 'MINUTES') {
-                    waitForQualityGate abortPipeline: true
-                }
-			}
-        }
+        stage('Static Code Analysis')
+		{
+			steps{
+				sonarqubeMasQualityGatesP(sonarKey:'co.com.ceiba.adn:gerardo.conductorelegido-gerardo.esterilla',
+				sonarName:'CeibaADN-ConductorElegido-gerardo.esterilla',
+				sonarPathProperties:'./sonar-project.properties')
+				}
+		}
 
         stage('Build'){
-            parallel {
-                stage('construcción Backend'){
-                    steps{
-                        echo "------------>Compilación backend<------------"
-                        dir("${PROJECT_PATH_BACK}"){
-                            sh './gradlew build -x test'
-                        }
-                    }
-                }
-            }
+            
+                steps {
+				        echo "------------>Build<------------"
+				        sh 'chmod +x ./presupuesto/gradlew'
+				        sh './microservicio/gradlew --b ./microservicio/build.gradle clean'
+				        sh './microservicio/gradlew --b ./microservicio/build.gradle build -x test'
+			}
+            
          }
     }
 	
