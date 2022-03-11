@@ -20,7 +20,7 @@ public class ServicioActualizarConductorTest {
         Mockito.when(repositorioConductor.existePorId(Mockito.anyLong())).thenReturn(false);
         ServicioActualizarConductor servicioActualizarConductor = new ServicioActualizarConductor(repositorioConductor);
         // act - assert
-        BasePrueba.assertThrows(() -> servicioActualizarConductor.ejecutar(conductor), ExcepcionDuplicidad.class,"El Conductor no existe en el sistema");
+        BasePrueba.assertThrows(() -> servicioActualizarConductor.ejecutar(conductor), ExcepcionDuplicidad.class,"El  conductor no existe en el sistema");
     }
 
     @Test
