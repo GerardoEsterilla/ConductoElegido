@@ -96,7 +96,7 @@ pipeline{
             
                 steps {
 				        echo "------------>Build<------------"
-				        sh 'chmod +x ./presupuesto/gradlew'
+				        sh 'chmod +x ./microservicio/gradlew'
 				        sh './microservicio/gradlew --b ./microservicio/build.gradle clean'
 				        sh './microservicio/gradlew --b ./microservicio/build.gradle build -x test'
 			}
