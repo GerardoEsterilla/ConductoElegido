@@ -29,7 +29,7 @@ class ConsultaControladorConductorTest {
 
     @Test
     @DisplayName("Deberia listar conductores")
-    void deberiaListarUsuarios() throws Exception {
+    void deberiaListarConductores() throws Exception {
         // arrange
         // act - assert
         mocMvc.perform(get("/conductores")
