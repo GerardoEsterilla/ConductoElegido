@@ -1,6 +1,5 @@
 package com.ceiba.vehiculo.puerto.repositorio;
 
-import com.ceiba.conductor.modelo.entidad.Conductor;
 import com.ceiba.vehiculo.modelo.entidad.Vehiculo;
 
 public interface RepositorioVehiculo {

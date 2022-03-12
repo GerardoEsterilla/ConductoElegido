@@ -4,10 +4,6 @@ import com.ceiba.cliente.puerto.repositorio.RepositorioCliente;
 import com.ceiba.cliente.servicio.ServicioActualizarCliente;
 import com.ceiba.cliente.servicio.ServicioCrearCliente;
 import com.ceiba.cliente.servicio.ServicioEliminarCliente;
-import com.ceiba.conductor.puerto.repositorio.RepositorioConductor;
-import com.ceiba.conductor.servicio.ServicioActualizarConductor;
-import com.ceiba.conductor.servicio.ServicioCrearConductor;
-import com.ceiba.conductor.servicio.ServicioEliminarConductor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 

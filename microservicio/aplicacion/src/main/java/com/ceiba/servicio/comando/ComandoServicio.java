@@ -1,7 +1,5 @@
 package com.ceiba.servicio.comando;
 
-import com.ceiba.cliente.modelo.entidad.Cliente;
-import com.ceiba.conductor.modelo.entidad.Conductor;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -17,8 +15,8 @@ import java.time.LocalDateTime;
 public class ComandoServicio {
 
     private Long id;
-    private Long id_conductor;
-    private Long id_cliente;
+    private Long idConductor;
+    private Long idCliente;
     private String origen;
     private String destino;
     private LocalDateTime fechaServicio;

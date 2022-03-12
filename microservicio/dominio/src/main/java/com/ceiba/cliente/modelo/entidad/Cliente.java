@@ -27,7 +27,7 @@ public class Cliente {
     /**private List<Vehiculo> listaVehiculo;**/
 
 
-    public Cliente(Long id, String nombre, String apellido, LocalDateTime fechaNacimiento, String cedula, String email, List<Vehiculo> listaVehiculo) {
+    public Cliente(Long id, String nombre, String apellido, LocalDateTime fechaNacimiento, String cedula, String email) {
         validarObligatorio(nombre, SE_DEBE_INGRESAR_EL_NOMBRE_DE_CLIENTE);
         validarObligatorio(apellido,SE_DEBE_INGRESAR_EL_APELLIDO_DE_CLIENTE);
         validarObligatorio(fechaNacimiento,SE_DEBE_INGRESAR_LA_FECHA_NACIMIENTO_DE_CLIENTE);

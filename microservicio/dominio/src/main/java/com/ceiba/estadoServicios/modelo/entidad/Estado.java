@@ -9,20 +9,20 @@ import static com.ceiba.dominio.ValidadorArgumento.validarObligatorio;
 @Getter
 public class Estado {
 
-    private static final String SE_DEBE_INGRESAR_EL_ESTADO_ = "Se debe ingresar el estado";
+    private static final String SE_DEBE_INGRESAR_EL_ESTADO = "Se debe ingresar el estado";
     private static final String SE_DEBE_INGRESAR_EL_SERVICIO = "Se debe ingresar el servicio";
 
     private Long id;
     private String estado ;
-    private Long id_servicio;
+    private Long idServicio;
 
-    public Estado(Long id, String estado, Long id_servicio) {
+    public Estado(Long id, String estado, Long idServicio) {
 
-        validarObligatorio(estado, SE_DEBE_INGRESAR_EL_ESTADO_);
-        validarObligatorio(id_servicio, SE_DEBE_INGRESAR_EL_SERVICIO);
+        validarObligatorio(estado, SE_DEBE_INGRESAR_EL_ESTADO);
+        validarObligatorio(idServicio, SE_DEBE_INGRESAR_EL_SERVICIO);
 
         this.id = id;
         this.estado = estado;
-        this.id_servicio = id_servicio;
+        this.idServicio = idServicio;
     }
 }

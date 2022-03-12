@@ -16,19 +16,19 @@ public class Vehiculo {
     private String marca;
     private String modelo;
     private String placa;
-    private Long id_cliente;
+    private Long idCliente;
 
 
-    public Vehiculo(Long id, String marca, String modelo, String placa, Long id_cliente) {
+    public Vehiculo(Long id, String marca, String modelo, String placa, Long idCliente) {
         validarObligatorio(marca, SE_DEBE_INGRESAR_LA_MARCA_DE_VEHICULO);
         validarObligatorio(modelo, SE_DEBE_INGRESAR_EL_MODELO_DE_VEHICULO);
         validarObligatorio(placa, SE_DEBE_INGRESAR_LA_PLACA_DE_VEHICULO);
-        validarObligatorio(id_cliente, SE_DEBE_INGRESAR_UN_CLIENTE_DE_VEHICULO);
+        validarObligatorio(idCliente, SE_DEBE_INGRESAR_UN_CLIENTE_DE_VEHICULO);
 
         this.id = id;
         this.marca = marca;
         this.modelo = modelo;
         this.placa = placa;
-        this.id_cliente = id_cliente;
+        this.idCliente = idCliente;
     }
 }

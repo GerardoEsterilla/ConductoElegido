@@ -1,7 +1,5 @@
 package com.ceiba.servicio.controlador;
 
-import com.ceiba.cliente.consulta.ManejadorListarCliente;
-import com.ceiba.cliente.modelo.dto.DtoCliente;
 import com.ceiba.servicio.consulta.ManejadorListarServicio;
 import com.ceiba.servicio.modelo.dto.DtoServicio;
 import io.swagger.annotations.Api;

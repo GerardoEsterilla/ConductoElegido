@@ -1,6 +1,5 @@
 package com.ceiba.servicio.puerto.repositorio;
 
-import com.ceiba.conductor.modelo.entidad.Conductor;
 import com.ceiba.servicio.modelo.entidad.Servicio;
 
 public interface RepositorioServicio {

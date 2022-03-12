@@ -1,7 +1,6 @@
 package com.ceiba.vehiculo.controlador;
 
 import com.ceiba.ComandoRespuesta;
-import com.ceiba.servicio.comando.ComandoServicio;
 import com.ceiba.vehiculo.comando.ComandoVehiculo;
 import com.ceiba.vehiculo.comando.manejador.ManejadorActualizarVehiculo;
 import com.ceiba.vehiculo.comando.manejador.ManejadorCrearVehiculo;

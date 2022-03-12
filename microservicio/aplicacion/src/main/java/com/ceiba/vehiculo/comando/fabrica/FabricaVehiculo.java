@@ -1,6 +1,5 @@
 package com.ceiba.vehiculo.comando.fabrica;
 
-import com.ceiba.servicio.modelo.entidad.Servicio;
 import com.ceiba.vehiculo.comando.ComandoVehiculo;
 import com.ceiba.vehiculo.modelo.entidad.Vehiculo;
 import org.springframework.stereotype.Component;
@@ -14,7 +13,7 @@ public class FabricaVehiculo {
                 comandoVehiculo.getMarca(),
                 comandoVehiculo.getModelo(),
                 comandoVehiculo.getPlaca(),
-                comandoVehiculo.getId_cliente()
+                comandoVehiculo.getIdCliente()
                 );
     }
 

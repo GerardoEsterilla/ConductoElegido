@@ -1,5 +1,5 @@
 UPDATE vehiculos
-	SET marca=:marca, modelo=:modelo, placa=:placa,id_cliente=:id_cliente
+	SET marca=:marca, modelo=:modelo, placa=:placa,id_cliente=:idCliente
 	WHERE id = :id;
 
 

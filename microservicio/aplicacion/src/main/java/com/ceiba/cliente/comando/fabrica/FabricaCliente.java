@@ -14,8 +14,8 @@ public class FabricaCliente {
                 comandoCliente.getApellido(),
                 comandoCliente.getFechaNacimiento(),
                 comandoCliente.getCedula(),
-                comandoCliente.getEmail(),
-                comandoCliente.getListaVehiculo()
+                comandoCliente.getEmail()
+                /**comandoCliente.getListaVehiculo()*/
 
 
         );

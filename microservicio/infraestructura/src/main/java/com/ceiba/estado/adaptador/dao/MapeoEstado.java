@@ -15,9 +15,9 @@ public class MapeoEstado implements RowMapper<DtoEstado>, MapperResult {
 
         Long id = resultSet.getLong("id");
         String estado = resultSet.getString("estado");
-        Long id_servicio = resultSet.getLong("id_servicio");
+        Long idServicio = resultSet.getLong("idServicio");
 
-        return new DtoEstado(id,estado,id_servicio);
+        return new DtoEstado(id,estado,idServicio);
     }
 
 }

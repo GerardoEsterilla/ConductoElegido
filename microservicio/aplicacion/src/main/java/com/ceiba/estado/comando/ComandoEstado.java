@@ -14,6 +14,6 @@ public class ComandoEstado {
 
     private Long id;
     private String estado ;
-    private Long id_servicio;
+    private Long idServicio;
 
 }

@@ -1,8 +1,6 @@
 package com.ceiba.servicio.comando.manejador;
 
 import com.ceiba.ComandoRespuesta;
-import com.ceiba.cliente.modelo.entidad.Cliente;
-import com.ceiba.cliente.servicio.ServicioCrearCliente;
 import com.ceiba.manejador.ManejadorComandoRespuesta;
 import com.ceiba.servicio.comando.ComandoServicio;
 import com.ceiba.servicio.comando.fabrica.FabricaServicio;

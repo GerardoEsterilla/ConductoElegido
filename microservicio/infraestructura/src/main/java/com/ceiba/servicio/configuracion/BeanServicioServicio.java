@@ -1,9 +1,6 @@
 package com.ceiba.servicio.configuracion;
 
-import com.ceiba.cliente.puerto.repositorio.RepositorioCliente;
-import com.ceiba.cliente.servicio.ServicioActualizarCliente;
-import com.ceiba.cliente.servicio.ServicioCrearCliente;
-import com.ceiba.cliente.servicio.ServicioEliminarCliente;
+
 import com.ceiba.servicio.puerto.repositorio.RepositorioServicio;
 import com.ceiba.servicio.servicio.ServicioActualizarServicio;
 import com.ceiba.servicio.servicio.ServicioCrearServicio;

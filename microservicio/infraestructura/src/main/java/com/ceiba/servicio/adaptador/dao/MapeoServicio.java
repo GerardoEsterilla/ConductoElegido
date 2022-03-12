@@ -1,6 +1,5 @@
 package com.ceiba.servicio.adaptador.dao;
 
-import com.ceiba.cliente.modelo.dto.DtoCliente;
 import com.ceiba.infraestructura.jdbc.MapperResult;
 import com.ceiba.servicio.modelo.dto.DtoServicio;
 import org.springframework.jdbc.core.RowMapper;
@@ -15,8 +14,8 @@ public class MapeoServicio implements RowMapper<DtoServicio>, MapperResult {
     public DtoServicio mapRow(ResultSet resultSet, int rowNum) throws SQLException {
 
         Long id = resultSet.getLong("id");
-        Long id_conductor = resultSet.getLong("id_conductor");
-        Long id_cliente = resultSet.getLong("id_cliente");
+        Long idConductor = resultSet.getLong("idConductor");
+        Long idCliente = resultSet.getLong("idCliente");
         String origen = resultSet.getString("origen");
         String destino = resultSet.getString("destino");
         LocalDateTime fechaServicio = extraerLocalDateTime(resultSet, "fechaServicio");
@@ -24,7 +23,7 @@ public class MapeoServicio implements RowMapper<DtoServicio>, MapperResult {
         String descripcion = resultSet.getString("descripcion");
 
 
-        return new DtoServicio(id,id_conductor,id_cliente,origen,destino,fechaServicio, valor , descripcion);
+        return new DtoServicio(id,idConductor,idCliente,origen,destino,fechaServicio, valor , descripcion);
     }
 
 }

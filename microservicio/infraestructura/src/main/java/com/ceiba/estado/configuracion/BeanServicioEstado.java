@@ -3,10 +3,6 @@ package com.ceiba.estado.configuracion;
 import com.ceiba.estadoServicios.puerto.repositorio.RepositorioEstado;
 import com.ceiba.estadoServicios.servicio.ServicioActualizarEstado;
 import com.ceiba.estadoServicios.servicio.ServicioCrearEstado;
-import com.ceiba.vehiculo.puerto.repositorio.RepositorioVehiculo;
-import com.ceiba.vehiculo.servicio.ServicioActualizarVehiculo;
-import com.ceiba.vehiculo.servicio.ServicioCrearVehiculo;
-import com.ceiba.vehiculo.servicio.ServicioEliminarVehiculo;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 

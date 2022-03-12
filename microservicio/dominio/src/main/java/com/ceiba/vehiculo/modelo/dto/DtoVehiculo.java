@@ -11,5 +11,5 @@ public class DtoVehiculo {
     private String marca;
     private String modelo;
     private String placa;
-    private Long id_cliente;
+    private Long idCliente;
 }

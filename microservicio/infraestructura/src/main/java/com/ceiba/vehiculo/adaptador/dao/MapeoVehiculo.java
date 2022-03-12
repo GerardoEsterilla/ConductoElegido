@@ -15,10 +15,10 @@ public class MapeoVehiculo implements RowMapper<DtoVehiculo>, MapperResult {
         String marca = resultSet.getString("marca");
         String modelo = resultSet.getString("modelo");
         String placa = resultSet.getString("placa");
-        Long id_cliente = resultSet.getLong("id_cliente");
+        Long idCliente = resultSet.getLong("idCliente");
 
 
-        return new DtoVehiculo(id,marca,modelo,placa,id_cliente);
+        return new DtoVehiculo(id,marca,modelo,placa,idCliente);
     }
 
 }

@@ -1,7 +1,5 @@
 package com.ceiba.vehiculo.servicio;
 
-import com.ceiba.conductor.modelo.entidad.Conductor;
-import com.ceiba.conductor.puerto.repositorio.RepositorioConductor;
 import com.ceiba.dominio.excepcion.ExcepcionDuplicidad;
 import com.ceiba.vehiculo.modelo.entidad.Vehiculo;
 import com.ceiba.vehiculo.puerto.repositorio.RepositorioVehiculo;
