@@ -18,9 +18,8 @@ public class ServicioActualizarConductorTest {
         // arrange
         Conductor conductor = new ConductorTestDataBuilder().conId(1L).build();
         RepositorioConductor repositorioConductor = Mockito.mock(RepositorioConductor.class);
-        DaoConductor daoConductor = Mockito.mock(DaoConductor.class);
         Mockito.when(repositorioConductor.existePorId(Mockito.anyLong())).thenReturn(false);
-        ServicioActualizarConductor servicioActualizarConductor = new ServicioActualizarConductor(repositorioConductor, daoConductor);
+        ServicioActualizarConductor servicioActualizarConductor = new ServicioActualizarConductor(repositorioConductor);
         // act - assert
         BasePrueba.assertThrows(() -> servicioActualizarConductor.ejecutar(conductor), ExcepcionDuplicidad.class,"El  conductor no existe en el sistema");
     }
@@ -32,8 +31,7 @@ public class ServicioActualizarConductorTest {
         Conductor conductor = new ConductorTestDataBuilder().conId(1L).build();
         RepositorioConductor repositorioConductor = Mockito.mock(RepositorioConductor.class);
         Mockito.when(repositorioConductor.existePorId(Mockito.anyLong())).thenReturn(true);
-        DaoConductor daoConductor = Mockito.mock(DaoConductor.class);
-        ServicioActualizarConductor servicioActualizarConductor = new ServicioActualizarConductor(repositorioConductor,daoConductor);
+        ServicioActualizarConductor servicioActualizarConductor = new ServicioActualizarConductor(repositorioConductor);
         // act
         servicioActualizarConductor.ejecutar(conductor);
         //assert

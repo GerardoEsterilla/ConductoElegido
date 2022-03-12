@@ -22,8 +22,8 @@ public class BeanServicioConductor {
     }
 
     @Bean
-    public ServicioActualizarConductor servicioActualizarConductor (RepositorioConductor repositorioConductor, DaoConductor daoConductor) {
-        return new ServicioActualizarConductor(repositorioConductor, daoConductor);
+    public ServicioActualizarConductor servicioActualizarConductor (RepositorioConductor repositorioConductor) {
+        return new ServicioActualizarConductor(repositorioConductor);
     }
 	
 

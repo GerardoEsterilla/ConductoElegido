@@ -13,11 +13,10 @@ public class ServicioActualizarConductor {
     private static final String EL_CONDUCTOR_NO_EXISTE_EN_EL_SISTEMA = "El  conductor no existe en el sistema";
 
     private final RepositorioConductor repositorioConductor;
-    private final DaoConductor daoConductor;
 
-    public ServicioActualizarConductor(RepositorioConductor repositorioConductor, DaoConductor daoConductor) {
+
+    public ServicioActualizarConductor(RepositorioConductor repositorioConductor) {
         this.repositorioConductor = repositorioConductor;
-        this.daoConductor=daoConductor;
     }
 
     public void ejecutar(Conductor conductor) {
@@ -27,7 +26,6 @@ public class ServicioActualizarConductor {
 
     private void validarExistenciaPrevia(Conductor conductor) {
         boolean existe = this.repositorioConductor.existePorId(conductor.getId());
-        List<DtoConductor> DtoConductor= this.daoConductor.listar();
         if(!existe) {
             throw new ExcepcionDuplicidad(EL_CONDUCTOR_NO_EXISTE_EN_EL_SISTEMA);
         }
