@@ -22,17 +22,17 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @WebMvcTest(ConsultaControladorConductor.class)
 @ContextConfiguration(classes= ApplicationMock.class)
 @DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD)
-class ConsultaControladorUsuarioTest {
+class ConsultaControladorConductorTest {
 
     @Autowired
     private MockMvc mocMvc;
 
     @Test
-    @DisplayName("Deberia listar usuarios")
+    @DisplayName("Deberia listar conductores")
     void deberiaListarUsuarios() throws Exception {
         // arrange
         // act - assert
-        mocMvc.perform(get("/usuarios")
+        mocMvc.perform(get("/conductores")
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$", hasSize(1)))

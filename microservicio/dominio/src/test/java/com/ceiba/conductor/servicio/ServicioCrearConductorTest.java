@@ -28,7 +28,7 @@ public class ServicioCrearConductorTest {
 
     @Test
     @DisplayName("Deberia Crear el conductor de manera correcta")
-    void deberiaCrearElUsuarioDeManeraCorrecta() {
+    void deberiaCrearElConductorDeManeraCorrecta() {
         // arrange
         Conductor conductor = new ConductorTestDataBuilder().build();
         RepositorioConductor repositorioConductor = Mockito.mock(RepositorioConductor.class);

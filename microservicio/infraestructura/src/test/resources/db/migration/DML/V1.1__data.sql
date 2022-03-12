@@ -1,1 +1,2 @@
-insert into usuario(id, nombre,clave,fecha_creacion) values(1,'test','1234',now())
+INSERT INTO conductores( nombre, apellido, fecha_nacimiento , cedula, email, telefono, foto)
+	VALUES ('test','test', now(), 'test', 'test', 'test', 'test');

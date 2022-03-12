@@ -23,7 +23,7 @@ public class ConsultaControladorConductor {
     }
 
     @GetMapping
-    @ApiOperation("Listar Conductores")
+    @ApiOperation("Listar conductores")
     public List<DtoConductor> listar() {
         return this.manejadorListarConductor.ejecutar();
     }

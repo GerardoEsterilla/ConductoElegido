@@ -4,11 +4,11 @@ import com.ceiba.ApplicationMock;
 import com.ceiba.conductor.comando.ComandoConductor;
 import com.ceiba.conductor.servicio.testdatabuilder.ComandoConductorTestDataBuilder;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.ContextConfiguration;
@@ -22,8 +22,9 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @ExtendWith(SpringExtension.class)
 @WebMvcTest(ComandoControladorConductor.class)
 @ContextConfiguration(classes= ApplicationMock.class)
-@DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD)
-class ComandoControladorUsuarioTest {
+@DirtiesContext(classMode = DirtiesContext.ClassMode.BEFORE_CLASS)
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
+class ComandoControladorConductorTest {
 
     @Autowired
     private ObjectMapper objectMapper;
@@ -32,46 +33,49 @@ class ComandoControladorUsuarioTest {
     private MockMvc mocMvc;
 
     @Test
-    @DisplayName("Deberia crear un usuario")
-    void deberiaCrearUnUsuario() throws Exception{
+    @Order(1)
+    @DisplayName("Deberia crear un conductor")
+    void deberiaCrearElConductorDeManeraCorrecta() throws Exception{
         // arrange
-        ComandoConductor usuario = new ComandoConductorTestDataBuilder().build();
+        ComandoConductor conductor = new ComandoConductorTestDataBuilder().build();
         // act - assert
-        mocMvc.perform(post("/usuarios")
+        mocMvc.perform(post("/conductor")
                 .contentType(MediaType.APPLICATION_JSON)
-                .content(objectMapper.writeValueAsString(usuario)))
+                .content(objectMapper.writeValueAsString(conductor)))
                 .andExpect(status().isOk())
                 .andExpect(content().json("{'valor': 2}"));
     }
 
     @Test
-    @DisplayName("Deberia actualizar un usuario")
-    void deberiaActualizarUnUsuario() throws Exception{
+    @Order(2)
+    @DisplayName("Deberia actualizar un conductor")
+    void deberiaActualizarUnConductor() throws Exception{
         // arrange
         Long id = 1L;
-        ComandoConductor usuario = new ComandoConductorTestDataBuilder().build();
+        ComandoConductor conductor = new ComandoConductorTestDataBuilder().build();
         // act - assert
-        mocMvc.perform(put("/usuarios/{id}",id)
+        mocMvc.perform(put("/conductor/{id}",id)
                 .contentType(MediaType.APPLICATION_JSON)
-                .content(objectMapper.writeValueAsString(usuario)))
+                .content(objectMapper.writeValueAsString(conductor)))
                 .andExpect(status().isOk());
     }
 
     @Test
-    @DisplayName("Deberia eliminar un usuario")
-    void deberiaEliminarUnUsuario() throws Exception {
+    @Order(3)
+    @DisplayName("Deberia eliminar un conductor")
+    void deberiaEliminarUnConductor() throws Exception {
         // arrange
         Long id = 1L;
         // act - assert
-        mocMvc.perform(delete("/usuarios/{id}",id)
+        mocMvc.perform(delete("/conductor/{id}",id)
                 .contentType(MediaType.APPLICATION_JSON)
                 .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk());
 
-        mocMvc.perform(get("/usuarios")
+        mocMvc.perform(get("/conductores")
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$", hasSize(0)));
+                .andExpect(jsonPath("$", hasSize(1)));
     }
 
 }
