@@ -35,9 +35,9 @@ public class ComandoControladorEstado {
     }
 
   /**  @DeleteMapping(value="/{id}")
-    @ApiOperation("Eliminar Vehiculo")
+    @ApiOperation("Eliminar Estado")
     public void eliminar(@PathVariable Long id) {
-        manejadorEliminarVehiculo.ejecutar(id);
+        manejadorEliminarEstado.ejecutar(id);
     }*/
 
     @PutMapping(value="/{id}")

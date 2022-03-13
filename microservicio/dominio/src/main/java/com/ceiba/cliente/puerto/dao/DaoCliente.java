@@ -1,7 +1,6 @@
 package com.ceiba.cliente.puerto.dao;
 
 import com.ceiba.cliente.modelo.dto.DtoCliente;
-import com.ceiba.conductor.modelo.dto.DtoConductor;
 
 import java.util.List;
 

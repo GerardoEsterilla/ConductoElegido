@@ -13,7 +13,7 @@ import lombok.Setter;
 public class ComandoEstado {
 
     private Long id;
-    private String estado ;
+    private String nombre ;
     private Long idServicio;
 
 }

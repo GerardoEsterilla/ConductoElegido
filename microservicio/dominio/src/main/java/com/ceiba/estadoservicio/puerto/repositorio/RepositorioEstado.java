@@ -1,6 +1,6 @@
-package com.ceiba.estadoServicios.puerto.repositorio;
+package com.ceiba.estadoservicio.puerto.repositorio;
 
-import com.ceiba.estadoServicios.modelo.entidad.Estado;
+import com.ceiba.estadoservicio.modelo.entidad.Estado;
 
 public interface RepositorioEstado {
     /**

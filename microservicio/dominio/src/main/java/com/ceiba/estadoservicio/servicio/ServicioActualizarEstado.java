@@ -1,10 +1,8 @@
-package com.ceiba.estadoServicios.servicio;
+package com.ceiba.estadoservicio.servicio;
 
-import com.ceiba.conductor.modelo.entidad.Conductor;
-import com.ceiba.conductor.puerto.repositorio.RepositorioConductor;
 import com.ceiba.dominio.excepcion.ExcepcionDuplicidad;
-import com.ceiba.estadoServicios.modelo.entidad.Estado;
-import com.ceiba.estadoServicios.puerto.repositorio.RepositorioEstado;
+import com.ceiba.estadoservicio.modelo.entidad.Estado;
+import com.ceiba.estadoservicio.puerto.repositorio.RepositorioEstado;
 
 public class ServicioActualizarEstado {
 

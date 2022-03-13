@@ -1,8 +1,8 @@
-package com.ceiba.estadoServicios.servicio;
+package com.ceiba.estadoservicio.servicio;
 
 import com.ceiba.dominio.excepcion.ExcepcionDuplicidad;
-import com.ceiba.estadoServicios.modelo.entidad.Estado;
-import com.ceiba.estadoServicios.puerto.repositorio.RepositorioEstado;
+import com.ceiba.estadoservicio.modelo.entidad.Estado;
+import com.ceiba.estadoservicio.puerto.repositorio.RepositorioEstado;
 
 public class ServicioCrearEstado {
     private static final String EL_ESTADO_YA_EXISTE_EN_EL_SISTEMA = "El estado ya existe en el sistema";
@@ -18,7 +18,7 @@ public class ServicioCrearEstado {
     }
 
     private void validarExistenciaPrevia(Estado estado) {
-        boolean existe = this.repositorioEstado.existe(estado.getEstado());
+        boolean existe = this.repositorioEstado.existe(estado.getNombre());
         if(existe) {
             throw new ExcepcionDuplicidad(EL_ESTADO_YA_EXISTE_EN_EL_SISTEMA);
         }

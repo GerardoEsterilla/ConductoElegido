@@ -1,4 +1,4 @@
-package com.ceiba.estadoServicios.modelo.dto;
+package com.ceiba.estadoservicio.modelo.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -7,6 +7,6 @@ import lombok.Getter;
 @AllArgsConstructor
 public class DtoEstado {
     private Long id;
-    private String estado ;
+    private String nombre ;
     private Long idServicio;
 }

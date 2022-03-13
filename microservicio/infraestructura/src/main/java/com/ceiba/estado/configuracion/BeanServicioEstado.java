@@ -1,8 +1,8 @@
 package com.ceiba.estado.configuracion;
 
-import com.ceiba.estadoServicios.puerto.repositorio.RepositorioEstado;
-import com.ceiba.estadoServicios.servicio.ServicioActualizarEstado;
-import com.ceiba.estadoServicios.servicio.ServicioCrearEstado;
+import com.ceiba.estadoservicio.puerto.repositorio.RepositorioEstado;
+import com.ceiba.estadoservicio.servicio.ServicioActualizarEstado;
+import com.ceiba.estadoservicio.servicio.ServicioCrearEstado;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 

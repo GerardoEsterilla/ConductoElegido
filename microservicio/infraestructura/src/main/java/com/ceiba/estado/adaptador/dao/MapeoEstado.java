@@ -1,8 +1,7 @@
 package com.ceiba.estado.adaptador.dao;
 
-import com.ceiba.estadoServicios.modelo.dto.DtoEstado;
+import com.ceiba.estadoservicio.modelo.dto.DtoEstado;
 import com.ceiba.infraestructura.jdbc.MapperResult;
-import com.ceiba.vehiculo.modelo.dto.DtoVehiculo;
 import org.springframework.jdbc.core.RowMapper;
 
 import java.sql.ResultSet;
@@ -14,10 +13,10 @@ public class MapeoEstado implements RowMapper<DtoEstado>, MapperResult {
     public DtoEstado mapRow(ResultSet resultSet, int rowNum) throws SQLException {
 
         Long id = resultSet.getLong("id");
-        String estado = resultSet.getString("estado");
+        String nombre = resultSet.getString("nombre");
         Long idServicio = resultSet.getLong("idServicio");
 
-        return new DtoEstado(id,estado,idServicio);
+        return new DtoEstado(id,nombre,idServicio);
     }
 
 }

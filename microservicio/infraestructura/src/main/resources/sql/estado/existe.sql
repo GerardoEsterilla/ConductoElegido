@@ -1,1 +1,1 @@
-select count(1) from estados_servicios where estados_servicio = :estado
+select count(1) from estados_servicios where estados_servicio = :nombre

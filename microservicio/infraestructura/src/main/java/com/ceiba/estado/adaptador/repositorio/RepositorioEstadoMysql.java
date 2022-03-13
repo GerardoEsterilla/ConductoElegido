@@ -1,11 +1,9 @@
 package com.ceiba.estado.adaptador.repositorio;
 
-import com.ceiba.estadoServicios.modelo.entidad.Estado;
-import com.ceiba.estadoServicios.puerto.repositorio.RepositorioEstado;
+import com.ceiba.estadoservicio.modelo.entidad.Estado;
+import com.ceiba.estadoservicio.puerto.repositorio.RepositorioEstado;
 import com.ceiba.infraestructura.jdbc.CustomNamedParameterJdbcTemplate;
 import com.ceiba.infraestructura.jdbc.sqlstatement.SqlStatement;
-import com.ceiba.vehiculo.modelo.entidad.Vehiculo;
-import com.ceiba.vehiculo.puerto.repositorio.RepositorioVehiculo;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.stereotype.Repository;
 
@@ -43,7 +41,7 @@ public class RepositorioEstadoMysql implements RepositorioEstado {
     @Override
     public boolean existe(String estado) {
         MapSqlParameterSource paramSource = new MapSqlParameterSource();
-        paramSource.addValue("estado", estado);
+        paramSource.addValue("nombre", estado);
 
         return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlExiste,paramSource, Boolean.class);
     }

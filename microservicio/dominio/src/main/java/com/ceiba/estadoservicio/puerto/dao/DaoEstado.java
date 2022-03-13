@@ -1,6 +1,6 @@
-package com.ceiba.estadoServicios.puerto.dao;
+package com.ceiba.estadoservicio.puerto.dao;
 
-import com.ceiba.estadoServicios.modelo.dto.DtoEstado;
+import com.ceiba.estadoservicio.modelo.dto.DtoEstado;
 
 import java.util.List;
 

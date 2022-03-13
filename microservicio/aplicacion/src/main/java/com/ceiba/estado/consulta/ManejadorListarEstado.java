@@ -1,7 +1,7 @@
 package com.ceiba.estado.consulta;
 
-import com.ceiba.estadoServicios.modelo.dto.DtoEstado;
-import com.ceiba.estadoServicios.puerto.dao.DaoEstado;
+import com.ceiba.estadoservicio.modelo.dto.DtoEstado;
+import com.ceiba.estadoservicio.puerto.dao.DaoEstado;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
