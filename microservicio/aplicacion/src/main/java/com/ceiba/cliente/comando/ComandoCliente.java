@@ -1,13 +1,11 @@
 package com.ceiba.cliente.comando;
 
-import com.ceiba.vehiculo.modelo.entidad.Vehiculo;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
-import java.util.List;
 
 @Getter
 @Setter
