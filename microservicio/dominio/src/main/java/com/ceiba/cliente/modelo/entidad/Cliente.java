@@ -13,7 +13,7 @@ public class Cliente {
 
     private static final String SE_DEBE_INGRESAR_EL_NOMBRE_DE_CLIENTE = "Se debe ingresar el nombre de cliente";
     private static final String SE_DEBE_INGRESAR_EL_APELLIDO_DE_CLIENTE = "Se debe ingresar el apellido de cliente";
-    private static final String SE_DEBE_INGRESAR_LA_FECHA_NACIMIENTO_DE_CLIENTE = "Se debe ingresar la fecha_nacimiento de cliente";
+    private static final String SE_DEBE_INGRESAR_LA_FECHA_NACIMIENTO_DE_CLIENTE = "Se debe ingresar la fechaNacimiento de cliente";
     private static final String SE_DEBE_INGRESAR_LA_CEDULA_DE_CLIENTE = "Se debe ingresar la cedula de cliente";
     private static final String SE_DEBE_INGRESAR_EL_EMAIL_DE_CLIENTE = "Se debe ingresar el email de cliente";
     private static final String SE_DEBE_INGRESAR_EL_VEHICULO_DE_CLIENTE = "Se debe ingresar el vehiculo de cliente";

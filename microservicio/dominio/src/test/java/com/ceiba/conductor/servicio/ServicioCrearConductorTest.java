@@ -15,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class ServicioCrearConductorTest {
 
     @Test
-    @DisplayName("Deberia lanzar una exepcion cuando se valide la existencia del conductor")
+    @DisplayName("Deberia lanzar una excepcion cuando se valide la existencia del conductor")
     void deberiaLanzarUnaExepcionCuandoSeValideLaExistenciaDelConductor() {
         // arrange
         Conductor conductor = new ConductorTestDataBuilder().build();
@@ -34,9 +34,9 @@ public class ServicioCrearConductorTest {
         RepositorioConductor repositorioConductor = Mockito.mock(RepositorioConductor.class);
         Mockito.when(repositorioConductor.existe(Mockito.anyString())).thenReturn(false);
         Mockito.when(repositorioConductor.crear(conductor)).thenReturn(10L);
-        ServicioCrearConductor servicioCrearUsuario = new ServicioCrearConductor(repositorioConductor);
+        ServicioCrearConductor servicioCrearConductor = new ServicioCrearConductor(repositorioConductor);
         // act
-        Long idConductor = servicioCrearUsuario.ejecutar(conductor);
+        Long idConductor = servicioCrearConductor.ejecutar(conductor);
         //- assert
         assertEquals(10L,idConductor);
         Mockito.verify(repositorioConductor, Mockito.times(1)).crear(conductor);

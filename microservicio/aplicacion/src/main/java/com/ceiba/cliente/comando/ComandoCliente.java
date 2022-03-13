@@ -21,5 +21,5 @@ public class ComandoCliente {
     private LocalDateTime fechaNacimiento;
     private String cedula;
     private String email;
-    private List<Vehiculo> listaVehiculo;
+    /**private List<Vehiculo> listaVehiculo;*/
 }

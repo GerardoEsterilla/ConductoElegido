@@ -31,10 +31,6 @@ public class ConductorTest {
         assertEquals("Conductor@hotmail.es", conductor.getEmail());
         assertEquals("123123412", conductor.getTelefono());
         assertEquals("asdasadjas", conductor.getFoto());
-
-        System.out.println(fechaNacimiento.equals(conductor.getFechaNacimiento()));
-
-
     }
 
     @Test

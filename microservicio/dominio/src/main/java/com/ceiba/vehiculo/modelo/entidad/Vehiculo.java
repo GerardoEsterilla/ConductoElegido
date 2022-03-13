@@ -10,7 +10,7 @@ public class Vehiculo {
     private static final String SE_DEBE_INGRESAR_LA_MARCA_DE_VEHICULO = "Se debe ingresar la marca de cliente";
     private static final String SE_DEBE_INGRESAR_EL_MODELO_DE_VEHICULO = "Se debe ingresar el modelo del vehiculo";
     private static final String SE_DEBE_INGRESAR_LA_PLACA_DE_VEHICULO = "Se debe ingresar la placa del vehiculo";
-    private static final String SE_DEBE_INGRESAR_UN_CLIENTE_DE_VEHICULO = "Se debe ingresar un cliente del vehiculo";
+    private static final String SE_DEBE_INGRESAR_UN_CLIENTE_DE_VEHICULO = "Se debe ingresar un idCliente del vehiculo";
 
     private Long id;
     private String marca;
