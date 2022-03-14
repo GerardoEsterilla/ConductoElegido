@@ -54,7 +54,7 @@ public class RepositorioServicioMysql implements RepositorioServicio {
         MapSqlParameterSource paramSource = new MapSqlParameterSource();
         paramSource.addValue("descripcion", descripcion);
 
-        return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlExiste,paramSource, Boolean.class);
+        return false;
     }
 
     @Override

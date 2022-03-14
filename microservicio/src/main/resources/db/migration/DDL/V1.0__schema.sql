@@ -72,12 +72,12 @@ CREATE SEQUENCE servicios_id_seq;
 
 CREATE TABLE IF NOT EXISTS Servicios (
                 id INTEGER NOT NULL DEFAULT nextval('servicios_id_seq'),
-                id_conductor INTEGER NOT NULL,
+                id_conductor INTEGER ,
                 id_cliente INTEGER NOT NULL,
                 Origen VARCHAR NOT NULL,
                 Destino VARCHAR NOT NULL,
                 Fecha_servicio VARCHAR NOT NULL,
-                Valor INTEGER NOT NULL,
+                Valor INTEGER ,
                 descripcion VARCHAR NOT NULL,
                 CONSTRAINT servicios_pk PRIMARY KEY (id)
 );

@@ -27,12 +27,11 @@ public class Servicio {
     private String descripcion;
 
     public Servicio(Long id, Long idConductor, Long idCliente, String origen, String destino, LocalDateTime fechaServicio, Long valor, String descripcion) {
-        validarObligatorio(idConductor, SE_DEBE_INGRESAR_EL_CONDUCTOR);
+
         validarObligatorio(idCliente, SE_DEBE_INGRESAR_EL_CLIENTE);
         validarObligatorio(origen, SE_DEBE_INGRESAR_EL_ORIGEN);
         validarObligatorio(destino, SE_DEBE_INGRESAR_EL_DESTINO);
         validarObligatorio(fechaServicio, SE_DEBE_INGRESAR_LA_FECHA_SERVICIO);
-        validarObligatorio(valor, SE_DEBE_INGRESAR_EL_VALOR);
         validarObligatorio(descripcion, SE_DEBE_INGRESAR_LA_DESCRIPCION);
 
 
@@ -46,4 +45,7 @@ public class Servicio {
         this.valor = valor;
         this.descripcion= descripcion;
     }
+
+
+
 }
