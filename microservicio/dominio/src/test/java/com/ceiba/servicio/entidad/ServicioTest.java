@@ -22,7 +22,7 @@ public class ServicioTest {
         Servicio servicio = new ServicioTestDataBuilder().conId(1L).build();
         //assert
         assertEquals(1, servicio.getId());
-        assertEquals(null, servicio.getIdConductor());
+        assertEquals(1, servicio.getIdConductor());
         assertEquals(1, servicio.getIdCliente());
         assertEquals("A", servicio.getOrigen());
         assertEquals("B", servicio.getDestino());
