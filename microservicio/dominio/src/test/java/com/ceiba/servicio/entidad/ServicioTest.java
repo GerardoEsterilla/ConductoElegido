@@ -22,7 +22,7 @@ public class ServicioTest {
         Servicio servicio = new ServicioTestDataBuilder().conId(1L).build();
         //assert
         assertEquals(1, servicio.getId());
-        assertEquals(1, servicio.getIdConductor());
+        assertEquals(null, servicio.getIdConductor());
         assertEquals(1, servicio.getIdCliente());
         assertEquals("A", servicio.getOrigen());
         assertEquals("B", servicio.getDestino());
@@ -30,18 +30,6 @@ public class ServicioTest {
         assertEquals(1, servicio.getValor());
         assertEquals("ViajeTest", servicio.getDescripcion());
 
-    }
-
-    @Test
-    void deberiaFallarSinIdConductor() {
-
-        //Arrange
-        ServicioTestDataBuilder servicioTestDataBuilder = new ServicioTestDataBuilder().conIdConductor(null).conId(1L);
-        //act-assert
-        BasePrueba.assertThrows(() -> {
-                    servicioTestDataBuilder.build();
-                },
-                ExcepcionValorObligatorio.class, "Se debe ingresar el idConductor");
     }
 
     @Test
@@ -92,17 +80,6 @@ public class ServicioTest {
                 ExcepcionValorObligatorio.class, "Se debe ingresar la fechaServicio");
     }
 
-    @Test
-    void deberiaFallarSinValor() {
-
-        //Arrange
-        ServicioTestDataBuilder servicioTestDataBuilder = new ServicioTestDataBuilder().conValor(null).conId(1L);
-        //act-assert
-        BasePrueba.assertThrows(() -> {
-                    servicioTestDataBuilder.build();
-                },
-                ExcepcionValorObligatorio.class, "Se debe ingresar el valor del servicio");
-    }
 
     @Test
     void deberiaFallarSinDescripcion() {

@@ -18,11 +18,11 @@ public class ServicioCrearServicio {
 
     public Long ejecutar(Servicio servicio) {
         validarExistenciaPrevia(servicio);
-        Servicio servicio1 = new Servicio(servicio.getId(), servicio.getIdConductor()
+        Servicio servicio1 = new Servicio(null, null
                 ,servicio.getIdCliente(),servicio.getOrigen(),servicio.getDestino(),
                 servicio.getFechaServicio(),calcularValorServicio(servicio.getFechaServicio()),
                 servicio.getDescripcion());
-        return this.repositorioServicio.crear(servicio1);
+                return this.repositorioServicio.crear(servicio1);
     }
 
     private void validarExistenciaPrevia(Servicio servicio) {
@@ -41,17 +41,13 @@ public class ServicioCrearServicio {
             sobrecosto+=5000;
         }
 
-        fechaServicio.getHour();
         if(fechaServicio.getHour()>=1 && fechaServicio.getHour()<=4){
             sobrecosto+=5000;
         }
         if(horaDiferencia<2){
             sobrecosto+=5000;
         }
-
         return TARIFA_BASE+sobrecosto;
-
-
     }
 
 }
