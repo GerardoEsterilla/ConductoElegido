@@ -58,12 +58,12 @@ CREATE TABLE IF NOT EXISTS Conductores (
 
 CREATE TABLE IF NOT EXISTS Servicios (
                 id bigint auto_increment NOT NULL ,
-                id_conductor bigint  NOT NULL,
+                id_conductor bigint  ,
                 id_cliente bigint  NOT NULL,
                 Origen VARCHAR NOT NULL,
                 Destino VARCHAR NOT NULL,
                 Fecha_servicio VARCHAR NOT NULL,
-                Valor INTEGER NOT NULL,
+                Valor INTEGER ,
                 descripcion VARCHAR NOT NULL,
                 CONSTRAINT servicios_pk PRIMARY KEY (id)
 );

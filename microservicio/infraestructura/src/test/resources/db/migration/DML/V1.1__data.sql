@@ -12,4 +12,4 @@ INSERT INTO estados_servicios(estados_servicio, servicios_id)
 
 
 INSERT INTO servicios(id_conductor, id_cliente, origen, destino, fecha_servicio, valor, descripcion)
-	VALUES (1, 1,'A','B',now(),1 ,'ViajeTest' );
+	VALUES (null, 1,'A','B',now(),null,'ViajeTest' );
