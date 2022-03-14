@@ -9,11 +9,11 @@ import static com.ceiba.dominio.ValidadorArgumento.validarObligatorio;
 @Getter
 public class Servicio {
 
-    private static final String SE_DEBE_INGRESAR_EL_CONDUCTOR = "Se debe ingresar el conductor";
-    private static final String SE_DEBE_INGRESAR_EL_CLIENTE = "Se debe ingresar el cliente";
+    private static final String SE_DEBE_INGRESAR_EL_CONDUCTOR = "Se debe ingresar el idConductor";
+    private static final String SE_DEBE_INGRESAR_EL_CLIENTE = "Se debe ingresar el idCliente";
     private static final String SE_DEBE_INGRESAR_EL_ORIGEN = "Se debe ingresar el origen del servicio";
     private static final String SE_DEBE_INGRESAR_EL_DESTINO = "Se debe ingresar el destino del servicio";
-    private static final String SE_DEBE_INGRESAR_LA_FECHA_SERVICIO = "Se debe ingresar la fecha de servicio";
+    private static final String SE_DEBE_INGRESAR_LA_FECHA_SERVICIO = "Se debe ingresar la fechaServicio";
     private static final String SE_DEBE_INGRESAR_EL_VALOR = "Se debe ingresar el valor del servicio";
     private static final String SE_DEBE_INGRESAR_LA_DESCRIPCION = "Se debe ingresar la descripcion del servicio";
 

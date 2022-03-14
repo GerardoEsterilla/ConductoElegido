@@ -10,7 +10,7 @@ import static com.ceiba.dominio.ValidadorArgumento.validarObligatorio;
 public class Estado {
 
     private static final String SE_DEBE_INGRESAR_EL_NOMBRE_DE_ESTADO = "Se debe ingresar el nombre de estado";
-    private static final String SE_DEBE_INGRESAR_EL_SERVICIO = "Se debe ingresar el servicio";
+    private static final String SE_DEBE_INGRESAR_EL_SERVICIO = "Se debe ingresar el idServicio";
 
     private Long id;
     private String nombre ;
