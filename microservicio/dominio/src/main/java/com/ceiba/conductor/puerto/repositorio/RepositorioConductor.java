@@ -24,10 +24,10 @@ public interface RepositorioConductor {
 
     /**
      * Permite validar si existe un conductor con un nombre
-     * @param nombre
+     * @param cedula
      * @return si existe o no
      */
-    boolean existe(String nombre);
+    boolean existe(String cedula);
 
     /**
      * Permite validar si existe un conductor con un nombre excluyendo un id

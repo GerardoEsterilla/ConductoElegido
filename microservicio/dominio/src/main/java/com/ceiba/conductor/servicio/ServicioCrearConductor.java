@@ -17,7 +17,7 @@ public class ServicioCrearConductor {
     }
 
     private void validarExistenciaPrevia(Conductor conductor) {
-        boolean existe = this.repositorioConductor.existe(conductor.getNombre());
+        boolean existe = this.repositorioConductor.existe(conductor.getCedula());
         if(existe) {
             throw new ExcepcionDuplicidad(EL_CONDUCTOR_YA_EXISTE_EN_EL_SISTEMA);
         }

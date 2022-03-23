@@ -11,6 +11,8 @@ import java.time.temporal.ChronoUnit;
 public class ServicioCrearServicio {
     private static final String EL_SERVICIO_YA_EXISTE_EN_EL_SISTEMA = "El servicio ya existe en el sistema";
     private static final Long TARIFA_BASE= 10000L;
+    private static final Long SOBRECOSTO=5000L;
+    private static final Long HORA_MIN_DIFERENCIA= 2L;
     private final RepositorioServicio repositorioServicio;
 
     public ServicioCrearServicio(RepositorioServicio repositorioServicio) {this.repositorioServicio = repositorioServicio;
@@ -18,11 +20,8 @@ public class ServicioCrearServicio {
 
     public Long ejecutar(Servicio servicio) {
         validarExistenciaPrevia(servicio);
-        Servicio servicio1 = new Servicio(null, null
-                ,servicio.getIdCliente(),servicio.getOrigen(),servicio.getDestino(),
-                servicio.getFechaServicio(),calcularValorServicio(servicio.getFechaServicio()),
-                servicio.getDescripcion());
-                return this.repositorioServicio.crear(servicio1);
+        servicio.setValor(calcularValorServicio(servicio.getFechaServicio()));
+        return this.repositorioServicio.crear(servicio);
     }
 
     private void validarExistenciaPrevia(Servicio servicio) {
@@ -35,19 +34,33 @@ public class ServicioCrearServicio {
     private Long calcularValorServicio(LocalDateTime fechaServicio){
         LocalDateTime fechaActual = LocalDateTime.now();
         Long horaDiferencia =ChronoUnit.HOURS.between(fechaActual,fechaServicio);
-        Long sobrecosto=0L;
+        Long total = 0L;
 
+        if (esFinDeSemana(fechaServicio)){
+            total+=SOBRECOSTO;
+        }
+
+        if(esEnMadrugada(fechaServicio)){
+            total+=SOBRECOSTO;
+        }
+        if(horaDiferencia<HORA_MIN_DIFERENCIA){
+            total+=SOBRECOSTO;
+        }
+        return TARIFA_BASE+total;
+    }
+
+    private Boolean esFinDeSemana(LocalDateTime fechaServicio){
         if (fechaServicio.getDayOfWeek()== DayOfWeek.SUNDAY || fechaServicio.getDayOfWeek()== DayOfWeek.SATURDAY ){
-            sobrecosto+=5000;
+            return true;
         }
+        return false;
+    }
 
+    private Boolean esEnMadrugada(LocalDateTime fechaServicio){
         if(fechaServicio.getHour()>=1 && fechaServicio.getHour()<=4){
-            sobrecosto+=5000;
+            return true;
         }
-        if(horaDiferencia<2){
-            sobrecosto+=5000;
-        }
-        return TARIFA_BASE+sobrecosto;
+        return false;
     }
 
 }

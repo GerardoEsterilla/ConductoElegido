@@ -10,14 +10,11 @@ public class FabricaServicio {
     public Servicio crear(ComandoServicio comandoServicio) {
         return new Servicio(
                 comandoServicio.getId(),
-                comandoServicio.getIdConductor(),
                 comandoServicio.getIdCliente(),
                 comandoServicio.getOrigen(),
                 comandoServicio.getDestino(),
                 comandoServicio.getFechaServicio(),
-                comandoServicio.getValor(),
                 comandoServicio.getDescripcion()
-
                 );
     }
 

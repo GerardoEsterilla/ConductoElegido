@@ -32,7 +32,6 @@ class ComandoControladorServicioTest {
     private MockMvc mocMvc;
 
     @Test
-    @Order(1)
     @DisplayName("Deberia crear un servicio")
     void deberiaCrearElServicioDeManeraCorrecta() throws Exception{
         // arrange
@@ -46,7 +45,6 @@ class ComandoControladorServicioTest {
     }
 
     @Test
-    @Order(2)
     @DisplayName("Deberia actualizar un servicio")
     void deberiaActualizarUnServicio() throws Exception{
         // arrange
@@ -60,7 +58,6 @@ class ComandoControladorServicioTest {
     }
 
     @Test
-    @Order(3)
     @DisplayName("Deberia eliminar un servicio")
     void deberiaEliminarUnServicio() throws Exception {
         // arrange

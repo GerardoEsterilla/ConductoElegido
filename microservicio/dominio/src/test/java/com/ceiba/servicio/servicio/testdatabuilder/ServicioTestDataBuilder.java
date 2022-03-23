@@ -66,6 +66,6 @@ public class ServicioTestDataBuilder {
 
 
     public Servicio build() {
-        return new Servicio(id,idConductor,idCliente,origen,destino,fechaServicio,valor,descripcion);
+        return new Servicio(id,idCliente,origen,destino,fechaServicio,descripcion);
     }
 }

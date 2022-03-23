@@ -16,4 +16,7 @@ public class ManejadorListarServicio {
     }
 
     public List<DtoServicio> ejecutar(){ return this.daoServicio.listar(); }
+
+    public List<DtoServicio> ejecutarCedulaCliente(Long idCliente){ return this.daoServicio.listarIdCliente(idCliente); }
+
 }

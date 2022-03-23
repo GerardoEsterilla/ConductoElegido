@@ -2,6 +2,7 @@ package com.ceiba.conductor.consulta;
 
 import java.util.List;
 
+import com.ceiba.cliente.modelo.dto.DtoCliente;
 import com.ceiba.conductor.modelo.dto.DtoConductor;
 import com.ceiba.conductor.puerto.dao.DaoConductor;
 import org.springframework.stereotype.Component;
@@ -16,4 +17,7 @@ public class ManejadorListarConductor {
     }
 
     public List<DtoConductor> ejecutar(){ return this.daoConductor.listar(); }
+
+    public DtoConductor ejecutarCedulaConductor(String cedula){ return this.daoConductor.listarCedula(cedula); }
+
 }

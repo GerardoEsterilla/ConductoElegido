@@ -1,6 +1,7 @@
 package com.ceiba.servicio.modelo.entidad;
 
 import lombok.Getter;
+import lombok.Setter;
 
 import java.time.LocalDateTime;
 
@@ -18,15 +19,18 @@ public class Servicio {
     private static final String SE_DEBE_INGRESAR_LA_DESCRIPCION = "Se debe ingresar la descripcion del servicio";
 
     private Long id;
-    private Long idConductor;
     private Long idCliente;
     private String origen;
     private String destino;
     private LocalDateTime fechaServicio;
-    private Long valor;
     private String descripcion;
+    @Setter
+    private Long valor;
+    @Setter
+    private Long idConductor;
 
-    public Servicio(Long id, Long idConductor, Long idCliente, String origen, String destino, LocalDateTime fechaServicio, Long valor, String descripcion) {
+
+    public Servicio(Long id, Long idCliente, String origen, String destino, LocalDateTime fechaServicio, String descripcion) {
 
         validarObligatorio(idCliente, SE_DEBE_INGRESAR_EL_CLIENTE);
         validarObligatorio(origen, SE_DEBE_INGRESAR_EL_ORIGEN);
@@ -37,12 +41,12 @@ public class Servicio {
 
 
         this.id = id;
-        this.idConductor = idConductor;
+        this.idConductor = null;
         this.idCliente = idCliente;
         this.origen = origen;
         this.destino=destino;
         this.fechaServicio = fechaServicio;
-        this.valor = valor;
+        this.valor = null;
         this.descripcion= descripcion;
     }
 

@@ -16,4 +16,6 @@ public class ManejadorListarCliente {
     }
 
     public List<DtoCliente> ejecutar(){ return this.daoCliente.listar(); }
+
+    public DtoCliente ejecutarCedulaCliente(String cedula){ return this.daoCliente.listarCedula(cedula); }
 }
