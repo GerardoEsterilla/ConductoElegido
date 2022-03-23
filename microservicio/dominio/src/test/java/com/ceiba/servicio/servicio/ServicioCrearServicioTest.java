@@ -60,7 +60,7 @@ public class ServicioCrearServicioTest {
          servicioCrearServicio.ejecutar(servicio);
         Long valorServicio = servicio.getValor();
         //- assert
-        assertEquals(10000L,valorServicio);
+        assertEquals(10000L,valorServicio);/*Igual al valor sin sobrecosto*/
 
 
 

@@ -44,7 +44,7 @@ public class ServicioCrearServicio {
             if (esEnMadrugada(fechaServicio)) {
                 total += SOBRECOSTO;
             }
-            if (horaDiferencia < HORA_MIN_DIFERENCIA) {
+            if (horaDiferencia < HORA_MIN_DIFERENCIA) {/*Hora menor a 2 sobrecosto*/
                 total += SOBRECOSTO;
             }
 
