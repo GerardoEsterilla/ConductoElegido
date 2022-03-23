@@ -41,5 +41,17 @@ class ConsultaControladorServicioTest {
 
     }
 
+    @Test
+    @DisplayName("Deberia listar servicios por idcliente")
+    void listarServicioIdCliente() throws Exception {
+        // act - assert
+        mocMvc.perform(get("/servicios/{idCliente}",1)
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$", hasSize(1)))
+                .andExpect(jsonPath("$[0].descripcion", is("ViajeTest")))
+                .andExpect(jsonPath("$[0].id", is(1)));
+    }
+
 
 }

@@ -52,15 +52,17 @@ public class ServicioCrearServicio {
     private Boolean esFinDeSemana(LocalDateTime fechaServicio){
         if (fechaServicio.getDayOfWeek()== DayOfWeek.SUNDAY || fechaServicio.getDayOfWeek()== DayOfWeek.SATURDAY ){
             return true;
+        }else{
+            return false;
         }
-        return false;
     }
 
     private Boolean esEnMadrugada(LocalDateTime fechaServicio){
         if(fechaServicio.getHour()>=1 && fechaServicio.getHour()<=4){
             return true;
+        }else{
+            return false;
         }
-        return false;
     }
 
 }

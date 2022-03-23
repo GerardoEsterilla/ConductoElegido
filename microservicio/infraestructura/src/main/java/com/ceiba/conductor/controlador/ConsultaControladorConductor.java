@@ -2,7 +2,6 @@ package com.ceiba.conductor.controlador;
 
 import java.util.List;
 
-import com.ceiba.cliente.modelo.dto.DtoCliente;
 import com.ceiba.conductor.consulta.ManejadorListarConductor;
 import com.ceiba.conductor.modelo.dto.DtoConductor;
 import org.springframework.web.bind.annotation.GetMapping;

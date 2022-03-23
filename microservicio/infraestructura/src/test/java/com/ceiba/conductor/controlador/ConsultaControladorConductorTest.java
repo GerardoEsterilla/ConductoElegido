@@ -41,5 +41,16 @@ class ConsultaControladorConductorTest {
 
     }
 
+    @Test
+    @DisplayName("Deberia listar conductores por cedula")
+    void listarConductoresCedula() throws Exception {
+        // act - assert
+        mocMvc.perform(get("/conductores/{cedula}","test")
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.nombre", is("test")))
+                .andExpect(jsonPath("$.id", is(1)));
+    }
+
 
 }
