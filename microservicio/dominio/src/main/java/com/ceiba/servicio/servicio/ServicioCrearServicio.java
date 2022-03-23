@@ -37,17 +37,22 @@ public class ServicioCrearServicio {
         Long horaDiferencia = ChronoUnit.HOURS.between(fechaActual, fechaServicio);
         Long total = 0L;
 
-        if (esFinDeSemana(fechaServicio)) {
-            total += SOBRECOSTO;
+        try {
+            if (esFinDeSemana(fechaServicio)) {
+                total += SOBRECOSTO;
+            }
+            if (esEnMadrugada(fechaServicio)) {
+                total += SOBRECOSTO;
+            }
+            if (horaDiferencia < HORA_MIN_DIFERENCIA) {
+                total += SOBRECOSTO;
+            }
+
+        }catch (Exception e){
         }
 
-        if (esEnMadrugada(fechaServicio)) {
-            total += SOBRECOSTO;
-        }
-        if (horaDiferencia < HORA_MIN_DIFERENCIA) {
-            total += SOBRECOSTO;
-        }
         return TARIFA_BASE + total;
+
     }
 
     private Boolean esFinDeSemana(LocalDateTime fechaServicio) {

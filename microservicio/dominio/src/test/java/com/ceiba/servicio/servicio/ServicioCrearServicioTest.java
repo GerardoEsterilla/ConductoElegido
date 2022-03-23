@@ -10,6 +10,10 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ServicioCrearServicioTest {
@@ -40,5 +44,26 @@ public class ServicioCrearServicioTest {
         //- assert
         assertEquals(10L,idServicio);
         Mockito.verify(repositorioServicio, Mockito.times(1)).crear(any(Servicio.class));
+    }
+
+    @Test
+    @DisplayName("Condicion probar condiciones Crear Servicio")
+    void  deberiaValidarCondicionesDeValor(){
+        LocalDateTime fechaActual = LocalDateTime.now().plus(4, ChronoUnit.HOURS);
+        // arrange
+        Servicio servicio = new ServicioTestDataBuilder().conFechaServicio(fechaActual).build();
+        RepositorioServicio repositorioServicio = Mockito.mock(RepositorioServicio.class);
+        Mockito.when(repositorioServicio.existe(Mockito.anyString())).thenReturn(false);
+        Mockito.when(repositorioServicio.crear(any(Servicio.class))).thenReturn(10L);
+        ServicioCrearServicio servicioCrearServicio = new ServicioCrearServicio(repositorioServicio);
+        // act
+         servicioCrearServicio.ejecutar(servicio);
+        Long valorServicio = servicio.getValor();
+        //- assert
+        assertEquals(10000L,valorServicio);
+
+
+
+
     }
 }
