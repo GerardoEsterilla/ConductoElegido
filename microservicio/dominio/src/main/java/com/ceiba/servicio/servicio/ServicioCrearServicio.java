@@ -10,12 +10,13 @@ import java.time.temporal.ChronoUnit;
 
 public class ServicioCrearServicio {
     private static final String EL_SERVICIO_YA_EXISTE_EN_EL_SISTEMA = "El servicio ya existe en el sistema";
-    private static final Long TARIFA_BASE= 10000L;
-    private static final Long SOBRECOSTO=5000L;
-    private static final Long HORA_MIN_DIFERENCIA= 2L;
+    private static final Long TARIFA_BASE = 10000L;
+    private static final Long SOBRECOSTO = 5000L;
+    private static final Long HORA_MIN_DIFERENCIA = 2L;
     private final RepositorioServicio repositorioServicio;
 
-    public ServicioCrearServicio(RepositorioServicio repositorioServicio) {this.repositorioServicio = repositorioServicio;
+    public ServicioCrearServicio(RepositorioServicio repositorioServicio) {
+        this.repositorioServicio = repositorioServicio;
     }
 
     public Long ejecutar(Servicio servicio) {
@@ -26,43 +27,37 @@ public class ServicioCrearServicio {
 
     private void validarExistenciaPrevia(Servicio servicio) {
         boolean existe = this.repositorioServicio.existe(servicio.getDescripcion());
-        if(existe) {
+        if (existe) {
             throw new ExcepcionDuplicidad(EL_SERVICIO_YA_EXISTE_EN_EL_SISTEMA);
         }
     }
 
-    private Long calcularValorServicio(LocalDateTime fechaServicio){
+    private Long calcularValorServicio(LocalDateTime fechaServicio) {
         LocalDateTime fechaActual = LocalDateTime.now();
-        Long horaDiferencia =ChronoUnit.HOURS.between(fechaActual,fechaServicio);
+        Long horaDiferencia = ChronoUnit.HOURS.between(fechaActual, fechaServicio);
         Long total = 0L;
 
-        if (esFinDeSemana(fechaServicio)){
-            total+=SOBRECOSTO;
+        if (esFinDeSemana(fechaServicio)) {
+            total += SOBRECOSTO;
         }
 
-        if(esEnMadrugada(fechaServicio)){
-            total+=SOBRECOSTO;
+        if (esEnMadrugada(fechaServicio)) {
+            total += SOBRECOSTO;
         }
-        if(horaDiferencia<HORA_MIN_DIFERENCIA){
-            total+=SOBRECOSTO;
+        if (horaDiferencia < HORA_MIN_DIFERENCIA) {
+            total += SOBRECOSTO;
         }
-        return TARIFA_BASE+total;
+        return TARIFA_BASE + total;
     }
 
-    private Boolean esFinDeSemana(LocalDateTime fechaServicio){
-        if (fechaServicio.getDayOfWeek()== DayOfWeek.SUNDAY || fechaServicio.getDayOfWeek()== DayOfWeek.SATURDAY ){
-            return true;
-        }else{
-            return false;
-        }
+    private Boolean esFinDeSemana(LocalDateTime fechaServicio) {
+        return fechaServicio.getDayOfWeek() == DayOfWeek.SUNDAY ||
+                fechaServicio.getDayOfWeek() == DayOfWeek.SATURDAY;
     }
 
-    private Boolean esEnMadrugada(LocalDateTime fechaServicio){
-        if(fechaServicio.getHour()>=1 && fechaServicio.getHour()<=4){
-            return true;
-        }else{
-            return false;
-        }
+    private Boolean esEnMadrugada(LocalDateTime fechaServicio) {
+        return fechaServicio.getHour() >= 1 &&
+                fechaServicio.getHour() <= 4;
     }
 
 }
